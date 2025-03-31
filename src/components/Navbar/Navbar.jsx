@@ -12,11 +12,11 @@ const Navbar = () => {
                     </li>
 
                     <li>
-                        <Link to='/'>Mailboxes</Link>
+                        <Link to='/mailboxes'>Mailboxes</Link>
                     </li>
 
                     <li>
-                        <Link to='/'>New Mailbox</Link>
+                        <Link to='/new-mailbox'>New Mailbox</Link>
                     </li>
                 </ul>
             </nav>
