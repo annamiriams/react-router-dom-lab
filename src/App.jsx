@@ -13,6 +13,16 @@ import { useState } from 'react';
 const App = () => {
     const [mailboxes, setMailboxes] = useState([]);
 
+    // scaffolding for function that will accept form data for a new mailbox and update setMailboxes state accordingly 
+    const addBox = (newMailboxData) => {
+        // creating object to hold newMailbox data
+        const newMailbox = {
+            // spread operator to add all newMailboxData to the new object; also adds a new property _id to the object which adds 1 to the current length of the mailboxes array
+            ...newMailboxData, _id: mailboxes.length + 1
+        };
+        setMailboxes([...mailboxes, newMailboxData]);
+    };
+
     return (
         <>
             <Navbar />
@@ -25,22 +35,21 @@ const App = () => {
                 
                 <Route
                     path='/mailboxes'
-                    element={ < MailboxList /> }
+                    element={ <MailboxList /> }
                 />
 
                 <Route 
                     path='/new-mailbox'
-                    element={ <MailboxForm />}
+                    element={ <MailboxForm /> }
                 />
 
                 <Route
                     path='/mailboxes/:mailboxId'
-                    element={<MailboxDetails />}
+                    element={ <MailboxDetails /> }
                 />
 
             </Routes>
 
-            <MailboxList />
         </>
     );
 };
