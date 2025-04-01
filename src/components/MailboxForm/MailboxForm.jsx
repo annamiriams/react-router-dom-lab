@@ -11,6 +11,8 @@ const MailboxForm = (props) => {
         boxSize: '',
     });
 
+    const navigate = useNavigate();
+
     // handleChange for form input changes
     const handleChange = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value});
@@ -22,6 +24,7 @@ const MailboxForm = (props) => {
         props.addBox(formData);
         // reset form to empty
         // link back to mailboxes
+        navigate('/mailboxes');
     };
 
     return (
@@ -52,12 +55,12 @@ const MailboxForm = (props) => {
                         onChange={handleChange}
                     >
                         <option value='choose'>---choose a size---</option>
-                        <option value='small'>Small</option>
-                        <option value='medium'>Medium</option>
-                        <option value='large'>Large</option>
+                        <option value='Small'>Small</option>
+                        <option value='Medium'>Medium</option>
+                        <option value='Large'>Large</option>
                     </select>
                 </div>
-                
+
                 <div>
                     <button type='submit'>Add Mailbox</button>
                 </div>
