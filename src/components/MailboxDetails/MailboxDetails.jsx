@@ -10,26 +10,29 @@ const MailboxDetails = (props) => {
     // destructure mailboxId from the object returned by useParams()
     // for example: if the current route is /mailbox/5 (from /mailbox/:mailboxId), useParams() will return {mailboxId: '5'}, so mailboxId would be set to '5'
     const { mailboxId } = useParams();
+    // console.log(mailboxId);
 
     // props.mailboxes is the list of mailboxes passed as a prop to the component 
     const selectedBox = props.mailboxes.find(
         // the callback function takes each mailbox and checks if the _id matches mailboxId (once it has been converted from a string to a Number) 
         (mailbox) => mailbox._id === Number(mailboxId)
     );
+    // console.log(selectedBox);
 
-    if (!props.selectedBox) {
-        return (
-            <>
-                <p>Mailbox not found!</p>
-            </>
-        )
-    }
+    // i'm not sure why this isn't working it did in pets?
+    // if (!props.selectedBox) {
+    //     return (
+    //         <>
+    //             <p>Mailbox not found!</p>
+    //         </>
+    //     )
+    // }
     
     return (
         <>
-            <p>Box Number: {props.selectedBox._id}</p>
-            <p>Box Owner: {props.selectedBox.boxOwner}</p>
-            <p>Box Size: {props.selectedBox.boxSize}</p>
+            <h1>Mailbox {selectedBox._id}</h1>
+            <p>Box Owner: {selectedBox.boxOwner}</p>
+            <p>Box Size: {selectedBox.boxSize}</p>
         </>
     );
 }
