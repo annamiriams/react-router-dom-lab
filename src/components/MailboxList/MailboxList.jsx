@@ -18,7 +18,7 @@ const MailboxList = (props) => {
                             <li class='mail-box'>
                                 <Link to={`/mailboxes/${mailbox._id}`}>
                                     <div className='mail-box'>
-                                        Mailbox {mailbox._id}
+                                        <h2>{mailbox._id}</h2>
                                     </div>
                                 </Link>
                             </li>
