@@ -3,7 +3,7 @@
 import { Link } from 'react-router';
 
 const MailboxList = (props) => {
-    console.log(props.mailboxes);
+    console.log(props);
 
     return (
         <>
@@ -14,18 +14,15 @@ const MailboxList = (props) => {
                     // maybe add a button here later to link to MailboxForm.jsx
                 ) : (
                     <ul>
-                        <div className='mail-box'>
-                            test mailbox
-                        </div>
-                        {props.mailboxes.map((mailbox) => {
-                            <li key={mailbox._id}>
+                        {props.mailboxes.map((mailbox) => (
+                            <li class='mail-box'>
                                 <Link to={`/mailboxes/${mailbox._id}`}>
                                     <div className='mail-box'>
-                                        {mailbox._id}
+                                        Mailbox {mailbox._id}
                                     </div>
                                 </Link>
                             </li>
-                        })}
+                        ))}
                     </ul>
                 )}
             </div>
