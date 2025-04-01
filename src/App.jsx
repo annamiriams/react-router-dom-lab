@@ -20,7 +20,7 @@ const App = () => {
             // spread operator to add all newMailboxData to the new object; also adds a new property _id to the object which adds 1 to the current length of the mailboxes array
             ...newMailboxData, _id: mailboxes.length + 1
         };
-        setMailboxes([...mailboxes, newMailboxData]);
+        setMailboxes([...mailboxes, newMailbox]);
     };
 
     return (
@@ -35,7 +35,9 @@ const App = () => {
 
                 <Route
                     path='/mailboxes'
-                    element={<MailboxList mailboxes={mailboxes} />}
+                    element={<MailboxList 
+                        mailboxes={mailboxes} 
+                    />}
                 />
 
                 <Route

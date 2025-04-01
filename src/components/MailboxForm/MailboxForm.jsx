@@ -51,6 +51,7 @@ const MailboxForm = (props) => {
                         required
                         onChange={handleChange}
                     >
+                        <option value='choose'>---choose a size---</option>
                         <option value='small'>Small</option>
                         <option value='medium'>Medium</option>
                         <option value='large'>Large</option>
