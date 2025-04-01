@@ -12,29 +12,41 @@ const MailboxDetails = (props) => {
     const { mailboxId } = useParams();
     // console.log(mailboxId);
 
-    // props.mailboxes is the list of mailboxes passed as a prop to the component 
-    const selectedBox = props.mailboxes.find(
-        // the callback function takes each mailbox and checks if the _id matches mailboxId (once it has been converted from a string to a Number) 
-        (mailbox) => mailbox._id === Number(mailboxId)
-    );
-    // console.log(selectedBox);
+    // adding try catch here to try and capture the error message if no mailbox is found
+    try {
+        // props.mailboxes is the list of mailboxes passed as a prop to the component 
+        const selectedBox = props.mailboxes.find(
+            // the callback function takes each mailbox and checks if the _id matches mailboxId (once it has been converted from a string to a Number) 
+            (mailbox) => mailbox._id === Number(mailboxId)
+        );
+        // console.log(selectedBox);
 
-    // i'm not sure why this isn't working it did in pets?
-    // if (!props.selectedBox) {
-    //     return (
-    //         <>
-    //             <p>Mailbox not found!</p>
-    //         </>
-    //     )
-    // }
-    
-    return (
-        <>
-            <h1>Mailbox {selectedBox._id}</h1>
-            <p>Box Owner: {selectedBox.boxOwner}</p>
-            <p>Box Size: {selectedBox.boxSize}</p>
-        </>
-    );
+        // i'm not sure why this isn't working it did in pets?
+        // if (!props.selectedBox) {
+        //     return (
+        //         <>
+        //             <p>Mailbox not found!</p>
+        //         </>
+        //     )
+        // }
+
+        return (
+            <>
+                <h1>Mailbox {selectedBox._id}</h1>
+                <p>Box Owner: {selectedBox.boxOwner}</p>
+                <p>Box Size: {selectedBox.boxSize}</p>
+            </>
+        );
+    } catch (error) {
+        console.log('Error in MailboxDetails:', error);
+        if (!props.selectedBox) {
+            return (
+                <>
+                    <p>Mailbox not found!</p>
+                </>
+            )
+        }
+    }
 }
 
 
