@@ -17,6 +17,7 @@ const MailboxList = (props) => {
                         {props.mailboxes.map((mailbox) => (
                             <li class='mail-box'>
                                 <Link to={`/mailboxes/${mailbox._id}`}>
+                                {/* this isn't a square like the instructions say, but it's still captured in the styling */}
                                     <div className='mail-box'>
                                         <h2>{mailbox._id}</h2>
                                     </div>
