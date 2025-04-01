@@ -26,11 +26,11 @@ const MailboxForm = (props) => {
 
     return (
         <>
-            <p>Add a Mailbox</p>
+            <h1>Add a Mailbox</h1>
             <form onSubmit={handleSubmit}>
                 <div>
                 {/* name of boxOwner */}
-                <label htmlFor="boxOwner">Box Owner</label>
+                <label htmlFor="boxOwner">Box Owner: </label>
                 <input 
                     type='text'
                     id='boxOwner'
@@ -43,7 +43,7 @@ const MailboxForm = (props) => {
 
                 {/* select menu for the boxSize (small, medium, or large) */}
                 <div>
-                    <label htmlFor="boxSize">Box Size</label>
+                    <label htmlFor="boxSize">Box Size: </label>
                     <select 
                         id='boxSize'
                         name='boxSize'
@@ -57,7 +57,10 @@ const MailboxForm = (props) => {
                         <option value='large'>Large</option>
                     </select>
                 </div>
-                <button type='submit'>Add Mailbox</button>
+                
+                <div>
+                    <button type='submit'>Add Mailbox</button>
+                </div>
             </form>
         </>
     );
